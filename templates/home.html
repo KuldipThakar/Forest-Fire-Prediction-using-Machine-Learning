@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+<body>
+
+    <h1>FWI Prediction</h1>
+
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <label for="RH">Temperature:</label>
+        <input type="text" id="Temperature" name="Temperature" placeholder="Temperature" required><br>
+
+        <label for="RH">Relative Humidity (RH):</label>
+        <input type="text" id="RH" name="RH" placeholder="RH" required><br>
+
+        <label for="Ws">Wind Speed (Ws):</label>
+        <input type="text" id="Ws" name="Ws" placeholder="Wind Speed" required><br>
+
+        <label for="Rain">Rain:</label>
+        <input type="text" id="Rain" name="Rain" placeholder="Rain" required><br>
+
+        <label for="FFMC">FFMC:</label>
+        <input type="text" id="FFMC" name="FFMC" placeholder="FFMC" required><br>
+
+        <label for="DMC">DMC:</label>
+        <input type="text" id="DMC" name="DMC" placeholder="DMC" required><br>
+
+        <label for="ISI">ISI:</label>
+        <input type="text" id="ISI" name="ISI" placeholder="ISI" required><br>
+
+        <label for="Classes">Classes:</label>
+        <input type="text" id="Classes" name="Classes" placeholder="Classes" required><br>
+
+        <label for="Region">Region:</label>
+        <input type="text" id="Region" name="Region" placeholder="Region" required><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>The FWI Prediction is: {{ result }}</h2>
+    {% endif %}
+
+</body>
+</html>
